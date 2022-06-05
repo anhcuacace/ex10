@@ -45,7 +45,16 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return albums.size();
+        if (albums != null) {
+            return albums.size();
+        } else {
+            return 0;
+        }
+    }
+
+    public void setData(List<Album> albumList) {
+        this.albums= albumList;
+            notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
